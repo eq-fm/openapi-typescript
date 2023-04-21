@@ -579,7 +579,7 @@ export interface OpenAPITSOptions {
   /** Should schema objects with a default value not be considered optional? */
   defaultNonNullable?: boolean;
   /** Manually transform certain Schema Objects with a custom TypeScript type */
-  transform?: (schemaObject: SchemaObject, options: TransformSchemaObjectOptions) => string | undefined;
+  transform?: (schemaObject: SchemaObject | ReferenceObject, options: TransformSchemaObjectOptions) => string | undefined;
   /** Modify TypeScript types built from Schema Objects */
   postTransform?: (type: string, options: TransformSchemaObjectOptions) => string | undefined;
   /** Add readonly properties and readonly arrays? (default: false) */

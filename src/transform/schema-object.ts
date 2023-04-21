@@ -50,15 +50,15 @@ export function defaultSchemaObjectTransform(
     return ctx.immutableTypes ? tsReadonly(finalType) : finalType;
   }
 
-  // $ref
-  if ("$ref" in schemaObject) {
-    return schemaObject.$ref;
-  }
-
   // transform()
   if (typeof ctx.transform === "function") {
     const result = ctx.transform(schemaObject, { path, ctx });
     if (result) return result;
+  }
+
+  // $ref
+  if ("$ref" in schemaObject) {
+    return schemaObject.$ref;
   }
 
   // const (valid for any type)
